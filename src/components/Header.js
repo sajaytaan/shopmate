@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import Logo from '../assets/logo.png';
 
 export const Header = () => {
+  const { cartList } = useCart();
+
   const activeClass = 'block bg-gray-200 text-gray-700 py-2 px-3 rounded';
   const inActiveClass = 'block text-gray-700 py-2 px-3';
 
@@ -29,7 +32,7 @@ export const Header = () => {
           </ul>
           <NavLink to="/cart">
             <div className="font-medium">
-              <span>Cart: 2</span>
+              <span>Cart: {cartList.length}</span>
             </div>
           </NavLink>
         </div>
